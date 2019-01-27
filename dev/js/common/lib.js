@@ -26,7 +26,7 @@ const isSolvedSudoku= (sudoku) => {
 
 
 const determinePossibleValues = (cell,sudoku) => {
-    var possible = new Array();
+    var possible = [];
     for (var i=1; i<=9; i++) {
         if (isPossibleNumber(cell,i,sudoku)) {
             possible.unshift(i);
@@ -36,10 +36,10 @@ const determinePossibleValues = (cell,sudoku) => {
 }
 
 const scanSudokuForUnique = (sudoku) => {
-    var possible = new Array();
+    var possible = [];
     for (var i=0; i<=80; i++) {
         if (sudoku[i] == 0) {
-            possible[i] = new Array();
+            possible[i] = [];
             possible[i] = determinePossibleValues(i,sudoku);
             if (possible[i].length==0) {
                 return false;
@@ -54,8 +54,8 @@ const solve = (sudoku) => {
     
     if (sudoku.length !== 81) return 'Puzzle is not valid.';
 
-    var saved = new Array();
-    var savedSudoku = new Array();
+    var saved = [];
+    var savedSudoku = [];
     var i=0;
     var nextMove;
     var whatToTry;

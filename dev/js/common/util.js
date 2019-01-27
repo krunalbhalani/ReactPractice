@@ -36,8 +36,8 @@ export default class util{
     }
 
     isCorrectRow (row,sudoku) {
-        var rightSequence = new Array(1,2,3,4,5,6,7,8,9);
-        var rowTemp= new Array();
+        var rightSequence = [1,2,3,4,5,6,7,8,9];
+        var rowTemp= [];
         for (var i=0; i<=8; i++) {
             rowTemp[i] = sudoku[row*9+i];
         }
@@ -47,8 +47,8 @@ export default class util{
     
     
     isCorrectCol (col,sudoku) {
-        var rightSequence = new Array(1,2,3,4,5,6,7,8,9);
-        var colTemp= new Array();
+        var rightSequence = [1,2,3,4,5,6,7,8,9];
+        var colTemp= [];
         for (var i=0; i<=8; i++) {
             colTemp[i] = sudoku[col+i*9];
         }
@@ -58,8 +58,8 @@ export default class util{
     
     
     isCorrectBlock (block,sudoku) {
-        var rightSequence = new Array(1,2,3,4,5,6,7,8,9);
-        var blockTemp= new Array();
+        var rightSequence = [1,2,3,4,5,6,7,8,9];
+        var blockTemp= [];
         for (var i=0; i<=8; i++) {
             blockTemp[i] = sudoku[Math.floor(block/3)*27+i%3+9*Math.floor(i/3)+3*(block%3)];
         }
@@ -73,7 +73,7 @@ export default class util{
     }
 
     removeAttempt(attemptArray,number) {
-        var newArray = new Array();
+        var newArray = [];
         for (var i=0; i<attemptArray.length; i++) {
             if (attemptArray[i] != number) {
                 newArray.unshift(attemptArray[i]);

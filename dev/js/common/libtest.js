@@ -54,8 +54,8 @@ function SudokuSolver() {
     
 
     function isCorrectRow (row,sudoku) {
-        var rightSequence = new Array(1,2,3,4,5,6,7,8,9);
-        var rowTemp= new Array();
+        var rightSequence = [1,2,3,4,5,6,7,8,9];
+        var rowTemp= [];
         for (var i=0; i<=8; i++) {
             rowTemp[i] = sudoku[row*9+i];
         }
@@ -65,8 +65,8 @@ function SudokuSolver() {
     
 
     function isCorrectCol (col,sudoku) {
-        var rightSequence = new Array(1,2,3,4,5,6,7,8,9);
-        var colTemp= new Array();
+        var rightSequence = [1,2,3,4,5,6,7,8,9];
+        var colTemp= [];
         for (var i=0; i<=8; i++) {
             colTemp[i] = sudoku[col+i*9];
         }
@@ -76,8 +76,8 @@ function SudokuSolver() {
     
 
     function isCorrectBlock (block,sudoku){
-        var rightSequence = new Array(1,2,3,4,5,6,7,8,9);
-        var blockTemp= new Array();
+        var rightSequence = [1,2,3,4,5,6,7,8,9];
+        var blockTemp= [];
         for (var i=0; i<=8; i++) {
             blockTemp[i] = sudoku[Math.floor(block/3)*27+i%3+9*Math.floor(i/3)+3*(block%3)];
         }
@@ -97,7 +97,7 @@ function SudokuSolver() {
     
 
     function determinePossibleValues (cell,sudoku) {
-        var possible = new Array();
+        var possible = [];
         for (var i=1; i<=9; i++) {
             if (isPossibleNumber(cell,i,sudoku)) {
                 possible.unshift(i);
@@ -114,10 +114,10 @@ function SudokuSolver() {
     
 
     function scanSudokuForUnique (sudoku) {
-        var possible = new Array();
+        var possible = [];
         for (var i=0; i<=80; i++) {
             if (sudoku[i] == 0) {
-                possible[i] = new Array();
+                possible[i] = [];
                 possible[i] = determinePossibleValues(i,sudoku);
                 if (possible[i].length==0) {
                     return false;
@@ -129,7 +129,7 @@ function SudokuSolver() {
     
 
     function removeAttempt(attemptArray,number){
-        var newArray = new Array();
+        var newArray = [];
         for (var i=0; i<attemptArray.length; i++) {
             if (attemptArray[i] != number) {
                 newArray.unshift(attemptArray[i]);
@@ -158,8 +158,8 @@ function SudokuSolver() {
 
         if (sudoku.length !== 81) return 'Puzzle is not valid.';
 
-        var saved = new Array();
-        var savedSudoku = new Array();
+        var saved = [];
+        var savedSudoku = [];
         var i=0;
         var nextMove;
         var whatToTry;
